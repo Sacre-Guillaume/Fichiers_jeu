@@ -6,7 +6,7 @@ public class PersonnageJoueur : MonoBehaviour
 	#region Variables (public) 
 
 	public Rigidbody m_pRigidbody = null;
-
+	
 	public  int m_iPV = 10;
   
 	public float m_fVitesse = 2.0f;
@@ -39,7 +39,12 @@ public class PersonnageJoueur : MonoBehaviour
 
 		if (direction != Vector3.zero)
 		{
-			direction.Normalize();
+			direction = CameraPersonnage.Instance.transform.TransformDirection(direction);
+			direction.y = 0.0f;
+
+
+			if (direction.sqrMagnitude != 0.0f)
+				direction.Normalize();
 
 			Vector3 deplacement = direction * (m_fVitesse * Time.deltaTime);
 			m_pRigidbody.MovePosition(transform.position + deplacement);
