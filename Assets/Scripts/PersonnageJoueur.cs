@@ -6,8 +6,10 @@ public class PersonnageJoueur : MonoBehaviour
 	#region Variables (public) 
 
 	public Rigidbody m_pRigidbody = null;
+
+	public Arme m_pArme = null;
 	
-	public  int m_iPV = 10;
+	public float m_fPV = 10.0f;
   
 	public float m_fVitesse = 2.0f;
 
@@ -28,6 +30,7 @@ public class PersonnageJoueur : MonoBehaviour
 
 		Jump();
 
+		Attaquer();
 	}	
 
 	private void BougerPersonnage()
@@ -62,4 +65,13 @@ public class PersonnageJoueur : MonoBehaviour
 
 		}
 	}
+
+	private void Attaquer()
+	{
+		if (Input.GetButton("Fire1"))
+		{
+			m_pArme.Attaquer();
+		}
+	}
+
 } 
