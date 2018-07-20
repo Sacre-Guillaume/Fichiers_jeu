@@ -10,6 +10,8 @@ public class CameraPersonnage : MonoBehaviour
 	public PersonnageJoueur m_pTarget = null;
 	public Transform m_pCameraTransform = null;
 
+	public Camera m_pCamera = null; 
+
 	public float m_fDistanceDeSuivi = 0.0f;
 	public float m_fVitesseDeRotation = 0.0f;
 
